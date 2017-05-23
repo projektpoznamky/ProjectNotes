@@ -20,9 +20,35 @@ namespace Notes
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string username;
+        private string password;
         public MainWindow()
         {
             InitializeComponent();
+            passwordBox.HorizontalContentAlignment = HorizontalAlignment.Center;
+            passwordBox.VerticalContentAlignment = VerticalAlignment.Top;
+            
+            
+            //loginPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void DockPanel_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            username = usernameTextBox.Text;
+            password = passwordBox.Password;
+
         }
     }
 }
