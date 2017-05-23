@@ -24,7 +24,7 @@ namespace Notes
         {       //připojit se do dtb
 
             //připojit na local dtb
-            connection = new MySqlConnection("Server=10.0.7.17; Port=3306; Database=projektpoznamky; Uid=poznamky; Pwd=12345");
+            connection = new MySqlConnection("Server=10.0.7.83; Port=3306; Database=projektpoznamky; Uid=poznamky; Pwd=12345");
             connection.Open(); //otevřít dtb
         }
         public void db_close()
@@ -35,7 +35,7 @@ namespace Notes
 
 
 
-        public void add_note_db(Poznamka note, int id_user)
+       /* public void add_note_db(Poznamka note, int id_user)
         { //přidat novou poznámku do databáze
 
             db_connect(); //pro každý nový příkaz musí být nové připojení do dtb
@@ -51,7 +51,7 @@ namespace Notes
             command.ExecuteNonQuery(); //provést
 
             db_close(); //ukončit dtb    
-        }
+        }*/
 
 
 

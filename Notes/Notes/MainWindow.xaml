@@ -5,36 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Notes"
         mc:Ignorable="d"
-        Title="Notes" Height="694.191" Width="1101.897">
+        Title="Notes" Height="694.191" Width="1101.897" Foreground="Black" BorderBrush="#FFA24949">
     <Grid Margin="0,0,2,1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="239*"/>
+            <ColumnDefinition Width="853*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFA3DEF0" Offset="0"/>
-                <GradientStop Color="#FFA482FF" Offset="1"/>
+                <GradientStop Color="#FFE7DEFF"/>
+                <GradientStop Color="#FFE6F4FB" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="1092" Background="White"/>
+        <StackPanel Name ="LoginPanel" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="1092" Background="White" Visibility="Hidden" Grid.ColumnSpan="2"/>
 
         <Button Name="LoginButton" BorderThickness ="1
-                " Content="Login" HorizontalAlignment="Stretch" Height="25" Margin="498,416,494,220" Width="100" Background="White" Foreground="#FFC029F9" BorderBrush="#FFC029F9" RenderTransformOrigin="1.195,0.45" Click="LoginButton_Click">
-            
+                " Content="Login" HorizontalAlignment="Stretch" Height="25" Margin="259,416,494,220" Width="100" Background="White" Foreground="#FFC029F9" BorderBrush="#FFC029F9" RenderTransformOrigin="1.195,0.45" Click="LoginButton_Click" Visibility="Hidden" Grid.Column="1">
+
         </Button>
 
-        <PasswordBox Name="passwordBox" BorderThickness = "0" HorizontalAlignment="Left" Margin="412,363,0,267" Width="272" FontFamily="Segoe UI Light" FontSize="14" BorderBrush="White">
+        <PasswordBox Name="passwordBox" BorderThickness = "0" HorizontalAlignment="Left" Margin="173,363,0,267" Width="272" FontFamily="Segoe UI Light" FontSize="14" BorderBrush="White" Visibility="Hidden" Grid.Column="1">
             <PasswordBox.Effect>
                 <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFC16EFB" Direction="270" Opacity="0.5"/>
             </PasswordBox.Effect>
         </PasswordBox>
 
 
-        <StackPanel HorizontalAlignment="Left" Margin="370,202,0,174" Width="342"/>
+        <StackPanel HorizontalAlignment="Left" Margin="131,202,0,174" Width="342" Visibility="Hidden" Grid.Column="1"/>
 
-        <TextBox Name="usernameTextBox" BorderThickness = "0" TextAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="412,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" FontFamily="Segoe UI Light" FontSize="14" Text="username" TextChanged="TextBox_TextChanged" SelectionBrush="#FFDEA5FF" BorderBrush="White" Foreground="Black">
+        <TextBox Name="usernameTextBox" BorderThickness = "0" TextAlignment="Center" HorizontalAlignment="Left" Height="26" Margin="173,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="272" FontFamily="Segoe UI Light" FontSize="14" Text="username" TextChanged="TextBox_TextChanged" SelectionBrush="#FFDEA5FF" BorderBrush="White" Foreground="Black" Visibility="Hidden" Grid.Column="1">
 
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFC16EFB" ShadowDepth="1" Direction="270" BlurRadius="1" Opacity="0.5"/>
             </TextBox.Effect>
         </TextBox>
+        <StackPanel HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="239" Opacity="0.7">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF25B9FF" Offset="0.051"/>
+                    <GradientStop Color="#FF8C60FF" Offset="0.717"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+
+        </StackPanel>
+
+        <Button Name="MyNotesButton" BorderThickness ="0" Content="My Notes" HorizontalAlignment="Left" Height="46" Margin="14,274,0,342" Width="205" Background="#26FFFFFF" Foreground="White" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Click="MyNotesButton_Click"/>
+        <Button BorderThickness ="0" Content="Add Note" HorizontalAlignment="Left" Height="46" Margin="14,322,0,294" Width="205" Background="#26FFFFFF" Foreground="White"/>
+        <Button BorderThickness ="0" Content="Calendar" HorizontalAlignment="Left" Height="46" Margin="14,370,0,246" Width="205" Background="#26FFFFFF" Foreground="White" BorderBrush="White"/>
 
 
     </Grid>
