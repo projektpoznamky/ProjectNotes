@@ -34,7 +34,7 @@ namespace Notes
             passwordBox.VerticalContentAlignment = VerticalAlignment.Top;
 
             db.db_connect();
-            ListNotesPanel1.Visibility = Visibility.Hidden;
+            ListNotesPanel.Visibility = Visibility.Hidden;
             
 
 
@@ -70,7 +70,7 @@ namespace Notes
 
         private void list()
         {
-            ListNotesPanel1.Children.Clear();
+            ListNotesPanel.Children.Clear();
             MySqlDataReader reader;
 
             reader = db.db_select_notes(14);
@@ -135,9 +135,9 @@ namespace Notes
                 grid.Children.Add(txtBlock2);
 
                 border.Child = grid;
-                ListNotesPanel1.Children.Add(border);
+                ListNotesPanel.Children.Add(border);
 
-                Scroll.Content = ListNotesPanel1;
+                Scroll.Content = ListNotesPanel;
             }
 
             
@@ -161,7 +161,7 @@ namespace Notes
                 usernameTextBox.Visibility = Visibility.Hidden;
                 passwordBox.Visibility = Visibility.Hidden;
                 LoginButton.Visibility = Visibility.Hidden;
-                ListNotesPanel1.Visibility = Visibility.Hidden;
+                ListNotesPanel.Visibility = Visibility.Hidden;
 
             }
             
@@ -180,13 +180,14 @@ namespace Notes
 
         private void MyNotesButton_Click(object sender, RoutedEventArgs e)
         {
-            ListNotesPanel1.Visibility = Visibility.Visible;
+            ListNotesPanel.Visibility = Visibility.Visible;
+            Scroll.Visibility = Visibility.Visible;
             list();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            list();
+            Scroll.Visibility = Visibility.Hidden;
         }
 
         private void CreateDynamicBorder()
@@ -236,9 +237,9 @@ namespace Notes
             grid.Children.Add(txtBlock2);
 
             border.Child = grid;
-            ListNotesPanel1.Children.Add(border);
+            ListNotesPanel.Children.Add(border);
 
-             Scroll.Content = ListNotesPanel1; 
+             Scroll.Content = ListNotesPanel; 
 
         }
     }

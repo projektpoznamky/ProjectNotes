@@ -18,8 +18,8 @@
                 <GradientStop Color="#FFE6F4FB" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-       
-        
+
+
         <Button Name="LoginButton" BorderThickness ="1
                 " Content="Login" HorizontalAlignment="Stretch" Height="25" Margin="259,416,494,220" Width="100" Background="White" Foreground="#FFC029F9" BorderBrush="#FFC029F9" RenderTransformOrigin="1.195,0.45" Click="LoginButton_Click" Visibility="Hidden" Grid.Column="1">
 
@@ -40,11 +40,11 @@
                 <DropShadowEffect Color="#FFC16EFB" ShadowDepth="1" Direction="270" BlurRadius="1" Opacity="0.5"/>
             </TextBox.Effect>
         </TextBox>
-        <StackPanel HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="239" Opacity="0.7">
+        <StackPanel HorizontalAlignment="Left" Height="662" VerticalAlignment="Center" Width="239" Opacity="0.7">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF25B9FF" Offset="0.051"/>
-                    <GradientStop Color="#FF8C60FF" Offset="0.717"/>
+                    <GradientStop Color="#FF8C60FF" Offset="0.726"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
 
@@ -53,8 +53,8 @@
         <Button Name="MyNotesButton" BorderThickness ="0" Content="My Notes" HorizontalAlignment="Left" Height="46" Margin="14,274,0,342" Width="205" Background="#26FFFFFF" Foreground="White" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Click="MyNotesButton_Click"/>
         <Button BorderThickness ="0" Content="Add Note" HorizontalAlignment="Left" Height="46" Margin="14,322,0,294" Width="205" Background="#26FFFFFF" Foreground="White" Click="Button_Click"/>
         <Button BorderThickness ="0" Content="Calendar" HorizontalAlignment="Left" Height="46" Margin="14,370,0,246" Width="205" Background="#26FFFFFF" Foreground="White" BorderBrush="White"/>
-        <ScrollViewer Name="Scroll" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="848" Grid.Column="1" Margin="5,0,0,0" CanContentScroll="True">
-            <StackPanel Name="ListNotesPanel1" Grid.Column="1" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="853">
+        <ScrollViewer Name="Scroll" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="853" Grid.Column="1" CanContentScroll="True">
+            <StackPanel Name="ListNotesPanel" Grid.Column="1" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="848">
                 <StackPanel.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FFEFE7F9" Offset="0"/>
@@ -71,5 +71,5 @@
 
 
     </Grid>
-       
+
 </Window>
