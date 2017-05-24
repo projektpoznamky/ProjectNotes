@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace Notes
 {
@@ -33,7 +34,7 @@ namespace Notes
             passwordBox.VerticalContentAlignment = VerticalAlignment.Top;
 
             db.db_connect();
-            ListNotesPanel.Visibility = Visibility.Hidden;
+            ListNotesPanel1.Visibility = Visibility.Hidden;
             
 
 
@@ -69,7 +70,7 @@ namespace Notes
 
         private void list()
         {
-            ListNotesPanel.Children.Clear();
+            ListNotesPanel1.Children.Clear();
             MySqlDataReader reader;
 
             reader = db.db_select_notes(14);
@@ -107,16 +108,26 @@ namespace Notes
                 border.Width = 800;
                 border.Height = 80;
 
+                //-------------EXTRÉMNĚ DŮLEŽITÉ-----------
+                //všechny html tagy budou vybrány
+                Regex regHtml = new Regex("<[^>]*>");
 
-                nameBlock.Text = reader.GetString("name_note");
+
+                //všechny html tagy budou nahrazeny --> ""
+                //výépis jména pozdnámky
+                nameBlock.Text = regHtml.Replace(reader.GetString("name_note"),"");
+
                 nameBlock.Foreground = new SolidColorBrush(Colors.Red);
                 Grid.SetRow(nameBlock, 0);
                 Grid.SetColumn(nameBlock, 0);
                 grid.Children.Add(nameBlock);
 
-                TextBlock txtBlock2 = new TextBlock();
-                txtBlock2.Text = reader.GetString("text_note");
 
+                //výpis textu poznámky
+                TextBlock txtBlock2 = new TextBlock();
+                //všechny html tagy budou nahrazeny --> ""
+                txtBlock2.Text = regHtml.Replace(reader.GetString("text_note"),"");
+                txtBlock2.TextWrapping = TextWrapping.Wrap;
 
                 txtBlock2.VerticalAlignment = VerticalAlignment.Top;
                 Grid.SetRow(txtBlock2, 1);
@@ -124,9 +135,9 @@ namespace Notes
                 grid.Children.Add(txtBlock2);
 
                 border.Child = grid;
-                ListNotesPanel.Children.Add(border);
+                ListNotesPanel1.Children.Add(border);
 
-                Scroll.Content = ListNotesPanel;
+                Scroll.Content = ListNotesPanel1;
             }
 
             
@@ -150,7 +161,7 @@ namespace Notes
                 usernameTextBox.Visibility = Visibility.Hidden;
                 passwordBox.Visibility = Visibility.Hidden;
                 LoginButton.Visibility = Visibility.Hidden;
-                ListNotesPanel.Visibility = Visibility.Hidden;
+                ListNotesPanel1.Visibility = Visibility.Hidden;
 
             }
             
@@ -169,7 +180,7 @@ namespace Notes
 
         private void MyNotesButton_Click(object sender, RoutedEventArgs e)
         {
-            ListNotesPanel.Visibility = Visibility.Visible;
+            ListNotesPanel1.Visibility = Visibility.Visible;
             list();
         }
 
@@ -225,9 +236,9 @@ namespace Notes
             grid.Children.Add(txtBlock2);
 
             border.Child = grid;
-            ListNotesPanel.Children.Add(border);
+            ListNotesPanel1.Children.Add(border);
 
-             Scroll.Content = ListNotesPanel; 
+             Scroll.Content = ListNotesPanel1; 
 
         }
     }
