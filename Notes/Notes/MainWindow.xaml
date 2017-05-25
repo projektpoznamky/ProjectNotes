@@ -53,7 +53,7 @@
         <Button Name="MyNotesButton" BorderThickness ="0" Content="My Notes" HorizontalAlignment="Left" Height="46" Margin="14,274,0,342" Width="205" Background="#26FFFFFF" Foreground="White" MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Click="MyNotesButton_Click"/>
         <Button BorderThickness ="0" Content="Add Note" HorizontalAlignment="Left" Height="46" Margin="14,322,0,294" Width="205" Background="#26FFFFFF" Foreground="White" Click="Button_Click"/>
         <Button BorderThickness ="0" Content="Calendar" HorizontalAlignment="Left" Height="46" Margin="14,370,0,246" Width="205" Background="#26FFFFFF" Foreground="White" BorderBrush="White"/>
-        <ScrollViewer Name="Scroll" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="853" Grid.Column="1" CanContentScroll="True">
+        <ScrollViewer Name="Scroll" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="853" Grid.Column="1" CanContentScroll="True" Visibility="Hidden">
             <StackPanel Name="ListNotesPanel" Grid.Column="1" HorizontalAlignment="Left" Height="662" VerticalAlignment="Top" Width="848">
                 <StackPanel.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -65,8 +65,21 @@
 
 
 
+
             </StackPanel>
         </ScrollViewer>
+        <StackPanel Name="AddNotePanel" Height="662" Grid.Column="1">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFEFE7F9" Offset="0"/>
+                    <GradientStop Color="#FFF2EBFB" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Label Name="LabelCharSize" Content="" Height="25" RenderTransformOrigin="0.5,0.5" Margin="30,0,579,0"/>
+            <TextBox Name="NameTextBox" HorizontalAlignment="Left" Height="41" Margin="30,10,0,10" TextWrapping="Wrap" Text="" Width="799" FontSize="20" FontFamily="Leelawadee UI" SpellCheck.IsEnabled="True" Background="#00000000" TextChanged="TextBox_TextChanged_2" LostFocus="NameTextBox_LostFocus" GotFocus="NameTextBox_GotFocus"/>
+            <TextBox Name="NoteTextBox" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Left" Height="541" Margin="30,0,0,0" Text="" Width="799" TextChanged="TextBox_TextChanged_1" Background="#00E2E9FF"/>
+            
+        </StackPanel>
 
 
 

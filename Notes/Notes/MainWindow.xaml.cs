@@ -35,6 +35,7 @@ namespace Notes
 
             db.db_connect();
             ListNotesPanel.Visibility = Visibility.Hidden;
+            AddNotePanel.Visibility = Visibility.Hidden;
             
 
 
@@ -83,6 +84,7 @@ namespace Notes
                 Border border = new Border();
                 Grid grid = new Grid();
                 TextBlock nameBlock = new TextBlock();
+                TextBlock txtBlock2 = new TextBlock();
 
                 RowDefinition gridRow1 = new RowDefinition();
                 RowDefinition gridRow2 = new RowDefinition();
@@ -123,8 +125,7 @@ namespace Notes
                 grid.Children.Add(nameBlock);
 
 
-                //výpis textu poznámky
-                TextBlock txtBlock2 = new TextBlock();
+                
                 //všechny html tagy budou nahrazeny --> ""
                 txtBlock2.Text = regHtml.Replace(reader.GetString("text_note"),"");
                 txtBlock2.TextWrapping = TextWrapping.Wrap;
@@ -180,6 +181,7 @@ namespace Notes
 
         private void MyNotesButton_Click(object sender, RoutedEventArgs e)
         {
+            AddNotePanel.Visibility = Visibility.Hidden;
             ListNotesPanel.Visibility = Visibility.Visible;
             Scroll.Visibility = Visibility.Visible;
             list();
@@ -188,6 +190,10 @@ namespace Notes
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Scroll.Visibility = Visibility.Hidden;
+            ListNotesPanel.Visibility = Visibility.Hidden;
+
+            AddNotePanel.Visibility = Visibility.Visible;
+            
         }
 
         private void CreateDynamicBorder()
@@ -241,6 +247,31 @@ namespace Notes
 
              Scroll.Content = ListNotesPanel; 
 
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+            int textSize = NoteTextBox.Text.Length;
+            LabelCharSize.Content = "Zbývá znaků: " + (2000 - textSize);
+            if(2000 - textSize < 1) {
+                LabelCharSize.Content = "Limit";
+            }
+        }
+
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+           
+            
+        }
+
+        private void NameTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            NameTextBox.Background = Brushes.Transparent;
+        }
+
+        private void NameTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            NameTextBox.Background = Brushes.CornflowerBlue;
         }
     }
 }
